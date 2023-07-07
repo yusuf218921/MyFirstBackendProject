@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
+    // DB'deki Category tablosunu tutmak için oluşturulmuş class
     public class Category : IEntity
     {
         public int CategoryId { get; set; }
