@@ -1,7 +1,7 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 
-ProductTest();
+//ProductTest();
 
 //CategoryTest();
 
