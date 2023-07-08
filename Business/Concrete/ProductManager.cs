@@ -1,7 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
-
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -12,20 +12,6 @@ namespace Business.Concrete
         public ProductManager(IProductDal productDal)
         {
             _productDal = productDal;
-        }
-
-        public void Add(Product product)
-        {
-            // İş Kodları
-            // Yetkisi var mı ?
-            _productDal.Add(product);
-        }
-
-        public void Delete(Product product)
-        {
-            // İş Kodları
-            // Yetkisi var mı ?
-            _productDal.Delete(product);
         }
 
         public Product Get()
@@ -50,11 +36,11 @@ namespace Business.Concrete
             return _productDal.GetAll(p=> p.UnitPrice >= min && p.UnitPrice <= max);
         }
 
-        public void Update(Product product)
+        public List<ProductDetailDto> GetProductDetail()
         {
-            // İş Kodları
-            // Yetkisi var mı ?
-            _productDal.Update(product);
+            return _productDal.GetProductDetail();
         }
+
+        
     }
 }

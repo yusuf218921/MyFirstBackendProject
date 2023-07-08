@@ -1,19 +1,24 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 
-//ProductTest();
+ProductTest();
 
-CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
-foreach (var category in categoryManager.GetAll())
-{
-    Console.WriteLine(category.CategoryName);
-}
+//CategoryTest();
 
 static void ProductTest()
 {
     ProductManager productManager = new ProductManager(new EfProductDal());
-    foreach (var item in productManager.GetByUnitPrice(20, 5000))
+    foreach (var item in productManager.GetProductDetail())
     {
-        Console.Write($"{item.UnitPrice,-15}");
+        Console.WriteLine($"{item.ProductName,-15} / {item.CategoryName,-15}");
+    }
+}
+
+static void CategoryTest()
+{
+    CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+    foreach (var category in categoryManager.GetAll())
+    {
+        Console.WriteLine(category.CategoryName);
     }
 }
